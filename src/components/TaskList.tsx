@@ -19,6 +19,9 @@ function TaskList() {
   function borrarTarea(idTarea : number) :void {
     // Pedir al servicio borrar la tarea
     // Cuando se borre, modificar tareas para quitar la tarea borrada 
+    taskService.delete(idTarea).then(() => {
+      setTareas(tareas.filter(tarea => tarea.id !== idTarea));
+    });
     alert(idTarea);
 
   }

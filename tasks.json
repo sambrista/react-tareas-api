@@ -1,6 +1,94 @@
 {
   "tasks": [
-    { "id": 1, "title": "Aprender React", "completed": false },
-    { "id": 2, "title": "Usar APIs REST", "completed": true }
+    {
+      "id": "1",
+      "title": "Aprender React",
+      "completed": false
+    },
+    {
+      "id": "2",
+      "title": "Usar APIs REST",
+      "completed": true
+    },
+    {
+      "id": "3",
+      "title": "Manejar el estado con useState",
+      "completed": true
+    },
+    {
+      "id": "4",
+      "title": "Pasar props a componentes hijos",
+      "completed": true
+    },
+    {
+      "id": "5",
+      "title": "Configurar React Router",
+      "completed": false
+    },
+    {
+      "id": "6",
+      "title": "Crear componentes reutilizables",
+      "completed": true
+    },
+    {
+      "id": "7",
+      "title": "Implementar formularios controlados",
+      "completed": false
+    },
+    {
+      "id": "8",
+      "title": "Validar datos con Zod o Yup",
+      "completed": false
+    },
+    {
+      "id": "9",
+      "title": "Estilizar con Tailwind CSS",
+      "completed": true
+    },
+    {
+      "id": "10",
+      "title": "Usar el hook useContext para temas",
+      "completed": false
+    },
+    {
+      "id": "11",
+      "title": "Optimizar con useMemo y useCallback",
+      "completed": false
+    },
+    {
+      "id": "12",
+      "title": "Consumir datos con TanStack Query",
+      "completed": false
+    },
+    {
+      "id": "13",
+      "title": "Manejar autenticación con JWT",
+      "completed": false
+    },
+    {
+      "id": "14",
+      "title": "Configurar un backend con Node.js",
+      "completed": true
+    },
+    {
+      "id": "15",
+      "title": "Conectar a una base de datos MongoDB",
+      "completed": true
+    },
+    {
+      "id": "16",
+      "title": "Escribir pruebas unitarias con Jest",
+      "completed": false
+    },
+    {
+      "id": "17",
+      "title": "Pruebas de integración con Cypress",
+      "completed": false
+    },
+    {
+      "id": "21",
+      "title": "Manejar carga de archivos con Multer",
+      "completed": false
+    }
   ]
 }
