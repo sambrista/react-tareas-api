@@ -2,7 +2,7 @@
 
 Proyecto de ejemplo para **aprender React consumiendo una API** (peticiones HTTP y CRUD básico) en un entorno moderno, del módulo de Desarrollo Web en Entorno Cliente, para el curso 2025 / 2026.
 
-La app se ejecuta con **Vite** y realiza llamadas a una API REST simulada usando **Axios**. Para el backend de prácticas se utiliza **json-server** con el fichero **`db.json`** incluido en el repositorio. :contentReference[oaicite:1]{index=1}
+La app se ejecuta con **Vite** y realiza llamadas a una API REST simulada usando **Axios**. Para el backend de prácticas se utiliza **json-server** con el fichero **`tasks.json`** incluido en el repositorio. :contentReference[oaicite:1]{index=1}
 
 ## Objetivo didáctico
 
@@ -41,23 +41,23 @@ La app se ejecuta con **Vite** y realiza llamadas a una API REST simulada usando
 
 ## Levantar la API (json-server)
 
-Este proyecto incluye el fichero `db.json` en la raíz.
+Este proyecto incluye el fichero `tasks.json` en la raíz.
 
 ### Opción A: usar json-server con npx (recomendado para clase)
 
 ```bash
-npx json-server db.json
+npx json-server tasks.json
 ```
 
-* API disponible en: `http://localhost:3001`
-* Los recursos disponibles dependen de las claves de `db.json` (por ejemplo: `/tasks`, `/todos`, etc.).
-  Consejo: abre `db.json` y fíjate en el nombre del array principal para saber el endpoint exacto.
+* API disponible en: `http://localhost:3000`
+* Los recursos disponibles dependen de las claves de `tasks.json` (por ejemplo: `/tasks`, `/todos`, etc.).
+  Consejo: abre `tasks.json` y fíjate en el nombre del array principal para saber el endpoint exacto.
 
 ### Opción B: instalar json-server globalmente
 
 ```bash
 npm i -g json-server
-json-server db.json
+json-server tasks.json
 ```
 
 ## Levantar el frontend (React + Vite)
@@ -77,7 +77,7 @@ Por defecto, Vite suele servir en:
 1. Terminal 1 (API):
 
    ```bash
-   npx json-server db.json
+   npx json-server tasks.json
    ```
 
 2. Terminal 2 (frontend):
