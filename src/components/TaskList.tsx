@@ -28,7 +28,7 @@ function TaskList() {
       {!cargando && (
         <ul>
           {tareas &&
-            tareas.map((tarea) => <li key={tarea.id}>{tarea.title} <button className="edit" onClick={() => borrarTarea(tarea.id)}>❌</button></li>)}
+            tareas.map((tarea) => <li key={tarea.id}>{tarea.title} <button className="delete" onClick={() => borrarTarea(tarea.id)}>❌</button></li>)}
         </ul>
       )}
     </>
