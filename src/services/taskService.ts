@@ -10,7 +10,7 @@ export const taskService = {
             setTimeout(() => resolve(axios.get<Task[]>(API_URL).then(response => response.data)), 2000); // Simula retardo de red
         });
     },
-    /*delete(id :number) : Promise<void> {
-        // petición AXIOS para borrar la tarea
-    }*/
+    delete(id :number) : Promise<void> {
+        return axios.delete<void>(API_URL + "/" + id).then(() => {})
+    }
 };

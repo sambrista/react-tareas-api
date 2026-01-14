@@ -5,6 +5,7 @@ import type { Task } from "../types/Task";
 function TaskList() {
   const [tareas, setTareas] = useState<Task[]>([]);
   const [cargando, setCargando] = useState<boolean>(true);
+  const [editando, setEditando] = useState<boolean>(false);
 
   useEffect(() => {
     taskService
@@ -16,10 +17,11 @@ function TaskList() {
   }, []);
 
   function borrarTarea(idTarea : number) :void {
-    // Pedir al servicio borrar la tarea
-    // Cuando se borre, modificar tareas para quitar la tarea borrada 
-    alert(idTarea);
-
+    setEditando(true);
+    taskService.delete(idTarea).then(() => {
+        setTareas(tareas.filter(tarea => tarea.id != idTarea))
+        setEditando(false);
+    })
   }
 
   return (
@@ -28,7 +30,7 @@ function TaskList() {
       {!cargando && (
         <ul>
           {tareas &&
-            tareas.map((tarea) => <li key={tarea.id}>{tarea.title} <button className="delete" onClick={() => borrarTarea(tarea.id)}>❌</button></li>)}
+            tareas.map((tarea) => <li key={tarea.id}>{tarea.title} <button disabled={editando} className="delete" onClick={() => borrarTarea(tarea.id)}>❌</button></li>)}
         </ul>
       )}
     </>
