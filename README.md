@@ -39,6 +39,8 @@ La app se ejecuta con **Vite** y realiza llamadas a una API REST simulada usando
    npm install
    ```
 
+3. Haz una copia del archivo `tasks.json.dist` y nómbralo como `tasks.json`.
+
 ## Levantar la API (json-server)
 
 Este proyecto incluye el fichero `tasks.json` en la raíz.
