@@ -20,10 +20,10 @@ function App() {
   }
 
   function editarTarea(tareaObjetivo : Task) :void {
-    console.log("Editando tarea " + tareaObjetivo.id)
     setEditando(true);
+    console.log(tareaObjetivo) // TODO: borrar
     /*
-    Hacer la petición de update con axios y, cuando termine, poner Editando a false, y tareaEditable a null
+    TODO: Hacer la petición de update con axios y, cuando termine, poner Editando a false, y tareaEditable a null
     */
   }
 

@@ -22,5 +22,5 @@ export const taskService = {
             setTimeout(() => resolve(axios.post<Task>((API_URL), {title: titulo, completed: false}).then(response => response.data)), 1000); // Simula retardo de red
         });
     }
-    // Crear update()
+    // TODO: Crear update()
 };

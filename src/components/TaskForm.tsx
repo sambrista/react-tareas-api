@@ -9,7 +9,7 @@ type TaskFormProps = {
 }
 
 function TaskForm({anadirTarea, editando, tareaEditable, editarTarea} : TaskFormProps ) {
-    const [titulo, setTitulo] = useState("");{/* Iniciar con el nombre de la tarea cuando se esté editando */}
+    const [titulo, setTitulo] = useState("");{/* TODO: Iniciar con el nombre de la tarea cuando se esté editando, sino en blanco */}
 
     function handleSubmit(e: React.FormEvent) {
         e.preventDefault();
@@ -24,11 +24,11 @@ function TaskForm({anadirTarea, editando, tareaEditable, editarTarea} : TaskForm
     }
 
     return <>
-    <h2>Agregar nueva tarea</h2> {/* Cambiar a "Editar tarea: nombre_original_de_la_tarea" */}
+    <h2>Agregar nueva tarea</h2> {/* TODO: Cambiar a "Editar tarea: nombre_original_de_la_tarea" */}
     <form onSubmit={handleSubmit}>
         <input type="text" placeholder="Título de la tarea" value={titulo} onChange={(e) => setTitulo(e.target.value)} />
-        <button type="submit" disabled={editando} >Agregar</button>{/* Cambiar a "Editar" cuando se esté editando */}
-        {/* Cuando se esté editando la tarea, añadir un botoncito de cancelar para poner editarTarea a null */}
+        <button type="submit" disabled={editando} >Agregar</button>{/* TODO: Cambiar a "Editar" cuando se esté editando */}
+        {/* TODO: Cuando se esté editando la tarea, añadir un botoncito de cancelar para poner editarTarea a null. Este botón deberá estar desactivado cuando haya una petición en curso */}
     </form>
     </>;
 }
