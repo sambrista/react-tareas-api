@@ -11,6 +11,9 @@ export const taskService = {
         });
     },
     delete(id :number) : Promise<void> {
-        return axios.delete<void>(API_URL + "/" + id).then(() => {})
+        //return axios.delete<void>(API_URL + "/" + id).then(() => {})
+                return new Promise((resolve) => {
+            setTimeout(() => resolve(axios.delete<void>(API_URL + "/" + id).then(() => {})), 1000); // Simula retardo de red
+        });
     }
 };

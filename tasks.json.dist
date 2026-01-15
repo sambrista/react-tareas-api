@@ -1,0 +1,59 @@
+{
+  "tasks": [
+    {
+      "id": "1",
+      "title": "Aprender React",
+      "completed": false
+    },
+    {
+      "id": "2",
+      "title": "Aprender TypeScript",
+      "completed": false
+    },
+    {
+      "id": "3",
+      "title": "Construir una aplicación",
+      "completed": false
+    },
+    {
+      "id": "4",
+      "title": "Probar la aplicación",
+      "completed": false
+    },
+    {
+      "id": "5",
+      "title": "Desplegar la aplicación",
+      "completed": false
+    },  
+    {
+      "id": "6",
+      "title": "Mantener la aplicación",
+      "completed": false
+    },
+    {
+      "id": "7",
+      "title": "Actualizar dependencias",
+      "completed": false
+    }, 
+    {
+      "id": "8",
+      "title": "Optimizar rendimiento",
+      "completed": false
+    },
+    {
+      "id": "9",
+      "title": "Corregir errores",
+      "completed": false
+    },
+    {
+      "id": "10",
+      "title": "Mejorar la experiencia de usuario",
+      "completed": false
+    },
+    {
+      "id": "11",
+      "title": "Agregar nuevas funcionalidades",
+      "completed": false
+    }
+  ]
+}
