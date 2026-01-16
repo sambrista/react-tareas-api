@@ -21,6 +21,8 @@ export const taskService = {
         return new Promise((resolve) => {
             setTimeout(() => resolve(axios.post<Task>((API_URL), {title: titulo, completed: false}).then(response => response.data)), 1000); // Simula retardo de red
         });
+    },
+    update(tarea : Task) : Promise<Task> {
+        return axios.patch<Task>((API_URL + "/" + tarea.id),tarea).then(response => response.data)
     }
-    // TODO: Crear update()
 };

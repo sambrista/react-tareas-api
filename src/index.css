@@ -93,6 +93,10 @@ li {
   transition: transform 0.15s ease, background 0.15s ease, border-color 0.15s ease;
 }
 
+li.completada {
+  background: rgba(0, 255, 21, 0.144);
+}
+
 li:hover {
   transform: translateY(-1px);
   background: rgba(255, 255, 255, 0.075);
@@ -201,6 +205,10 @@ input[type="text"]:focus {
   outline: none;
   border-color: rgba(124, 92, 255, 0.55);
   background: rgba(10, 14, 26, 0.55);
+}
+
+button:disabled {
+  opacity: 0.2;
 }
 
 /* Botón principal del form (Agregar) */

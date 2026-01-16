@@ -3,12 +3,12 @@ import type { Task } from "../types/Task";
 type TaskListProps = {
   tareas: Task[];
   cargando: boolean;
-  editando: boolean;
+  peticionEnProgreso: boolean;
   borrarTarea: (tarea : Task) => void;
-  setTareaEditable: (tarea : Task) => void;
+  setTareaSeleccionada: (tarea : Task) => void;
 };
 
-function TaskList({ tareas, cargando, editando, setTareaEditable, borrarTarea}: TaskListProps) {
+function TaskList({ tareas, cargando, peticionEnProgreso, setTareaSeleccionada, borrarTarea}: TaskListProps) {
   return (
     <>
       {cargando && <p>Cargando...</p>}
@@ -16,17 +16,19 @@ function TaskList({ tareas, cargando, editando, setTareaEditable, borrarTarea}: 
         <ul>
           {tareas &&
             tareas.map((tarea) => (
-              <li key={tarea.id}>
+              <li key={tarea.id} className={tarea.completed ? "completada"  :""}>
+                { /* TODO: Poner ✅ si está completa*/}
                 {tarea.title}{" "}
+                { /* Mostrar botón completar si está incompleta */ }
                 <button
-                  disabled={editando}
+                  disabled={peticionEnProgreso}
                   className="edit"
-                  onClick={() => setTareaEditable(tarea)}
+                  onClick={() => setTareaSeleccionada(tarea)}
                 >
                   ✏️
                 </button>
                 <button
-                  disabled={editando}
+                  disabled={peticionEnProgreso}
                   className="delete"
                   onClick={() => borrarTarea(tarea)}
                 >

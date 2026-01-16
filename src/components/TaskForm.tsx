@@ -1,21 +1,26 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import type { Task } from "../types/Task";
 
 type TaskFormProps = {
     anadirTarea : (titulo: string) => (void);
     editarTarea : (tarea: Task) => (void);
-    editando: boolean;
-    tareaEditable: Task | null
+    cancelarEdicionTarea: () => (void);
+    peticionEnProgreso: boolean;
+    tareaSeleccionada: Task | null
 }
 
-function TaskForm({anadirTarea, editando, tareaEditable, editarTarea} : TaskFormProps ) {
-    const [titulo, setTitulo] = useState("");{/* TODO: Iniciar con el nombre de la tarea cuando se esté editando, sino en blanco */}
+function TaskForm({anadirTarea, peticionEnProgreso, tareaSeleccionada, editarTarea, cancelarEdicionTarea} : TaskFormProps ) {
+    const [titulo, setTitulo] = useState(tareaSeleccionada?.title ?? "");
+
+    useEffect(() => {
+        setTitulo(tareaSeleccionada?.title ?? "")
+    }, [tareaSeleccionada]);
 
     function handleSubmit(e: React.FormEvent) {
         e.preventDefault();
         if (titulo.trim().length > 0) {
-            if (tareaEditable != null) {
-                const nuevaTarea : Task = {...tareaEditable, title: titulo}
+            if (tareaSeleccionada != null) {
+                const nuevaTarea : Task = {...tareaSeleccionada, title: titulo}
                 editarTarea(nuevaTarea)
             } else {
                 anadirTarea(titulo.trim())
@@ -24,11 +29,11 @@ function TaskForm({anadirTarea, editando, tareaEditable, editarTarea} : TaskForm
     }
 
     return <>
-    <h2>Agregar nueva tarea</h2> {/* TODO: Cambiar a "Editar tarea: nombre_original_de_la_tarea" */}
+    <h2>{tareaSeleccionada ? `Editar tarea: ${tareaSeleccionada.title}` : "Agregar nueva tarea"}</h2>
     <form onSubmit={handleSubmit}>
         <input type="text" placeholder="Título de la tarea" value={titulo} onChange={(e) => setTitulo(e.target.value)} />
-        <button type="submit" disabled={editando} >Agregar</button>{/* TODO: Cambiar a "Editar" cuando se esté editando */}
-        {/* TODO: Cuando se esté editando la tarea, añadir un botoncito de cancelar para poner editarTarea a null. Este botón deberá estar desactivado cuando haya una petición en curso */}
+        <button type="submit" disabled={peticionEnProgreso} >{ tareaSeleccionada ? "Editar" : "Agregar"}</button>{}
+        { tareaSeleccionada && <button className="cancel" disabled={peticionEnProgreso} onClick={cancelarEdicionTarea}>Cancelar</button>}
     </form>
     </>;
 }
