@@ -8,30 +8,38 @@ import type { Task } from './types/Task';
 function App() {
   const [tareas, setTareas] = useState<Task[]>([]);
     const [cargando, setCargando] = useState<boolean>(true);
-    const [editando, setEditando] = useState<boolean>(false);
-    const [tareaEditable, setTareaEditable] = useState<Task | null>(null);
+    const [peticionEnProgreso, setPeticionEnProgreso] = useState<boolean>(false);
+    const [tareaSeleccionada, setTareaSeleccionada] = useState<Task | null>(null);
 
   function borrarTarea(tareaObjetivo : Task) :void {
-    setEditando(true);
+    setPeticionEnProgreso(true);
     taskService.delete(tareaObjetivo.id).then(() => {
         setTareas(tareas.filter(tarea => tarea.id != tareaObjetivo.id))
-        setEditando(false);
+        setPeticionEnProgreso(false);
     })
   }
 
+  function cancelarEdicionTarea() : void {
+    setTareaSeleccionada(null);
+  }
+
   function editarTarea(tareaObjetivo : Task) :void {
-    setEditando(true);
-    console.log(tareaObjetivo) // TODO: borrar
+    setPeticionEnProgreso(true);
+    taskService.update(tareaObjetivo).then(() => {
+        setTareas(tareas.map(tarea => tarea.id == tareaObjetivo.id ? tareaObjetivo : tarea))
+        setPeticionEnProgreso(false);
+        cancelarEdicionTarea();
+    })
     /*
-    TODO: Hacer la petición de update con axios y, cuando termine, poner Editando a false, y tareaEditable a null
+    TODO: Hacer la petición de update con axios y, cuando termine, poner peticionEnProgreso a false, y tareaSeleccionada a null
     */
   }
 
   function anadirTarea(titulo : string) :void {
-    setEditando(true);
+    setPeticionEnProgreso(true);
     taskService.create(titulo).then((nuevaTarea) => {
         setTareas([...tareas, nuevaTarea])
-        setEditando(false);
+        setPeticionEnProgreso(false);
     })
   }
 
@@ -47,8 +55,8 @@ function App() {
   return (
     <div>
       <h1>Lista de tareas</h1>
-      <TaskList tareas={tareas} cargando={cargando} editando={editando} borrarTarea={borrarTarea} setTareaEditable={setTareaEditable} />
-      <TaskForm anadirTarea={anadirTarea} editando={editando} tareaEditable={tareaEditable} editarTarea={editarTarea} />
+      <TaskList tareas={tareas} cargando={cargando} peticionEnProgreso={peticionEnProgreso} borrarTarea={borrarTarea} setTareaSeleccionada={setTareaSeleccionada} />
+      <TaskForm anadirTarea={anadirTarea} peticionEnProgreso={peticionEnProgreso} tareaSeleccionada={tareaSeleccionada} editarTarea={editarTarea} cancelarEdicionTarea={cancelarEdicionTarea} />
     </div>
   )
 }
