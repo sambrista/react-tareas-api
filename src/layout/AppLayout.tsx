@@ -8,6 +8,8 @@ export default function AppLayout() {
                     <span className="brand">React Tareas</span>
                     <nav className="navlinks">
                         <NavLink to="/tasks">Tareas</NavLink>
+                        <NavLink to="/about">About</NavLink>
+                        <NavLink to="/profile">Perfil</NavLink>
                     </nav>
                 </div>
             </header>

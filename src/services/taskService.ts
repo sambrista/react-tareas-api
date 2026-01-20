@@ -10,6 +10,7 @@ if (API_BASE_URL == undefined) {
 const API_URL = API_BASE_URL +"/tasks";
 
 export const taskService = {
+    /* Crear get(id: number) para obtener una tarea a partir de su ID */
     getAll(): Promise<Task[]> {
         // return axios.get<Task[]>(API_URL).then(response => response.data);
         return new Promise((resolve) => {
