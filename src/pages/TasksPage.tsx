@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
 import TaskForm from "../components/TaskForm";
 import TaskList from "../components/TaskList";
 import { taskService } from "../services/taskService";
@@ -10,8 +9,6 @@ export default function TasksPage() {
   const [cargando, setCargando] = useState<boolean>(true);
   const [peticionEnProgreso, setPeticionEnProgreso] = useState<boolean>(false);
   const [tareaSeleccionada, setTareaSeleccionada] = useState<Task | null>(null);
-
-  const navigate = useNavigate();
 
   function borrarTarea(tareaObjetivo: Task): void {
     setPeticionEnProgreso(true);
