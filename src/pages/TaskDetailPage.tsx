@@ -4,7 +4,7 @@ export default function TaskDetailPage() {
     const { id } = useParams<{ id: string }>();
     
     /* TODO: Usar el servicio para obtener la tarea */
-    /* TODO: Mientras no esté cargada la noticia, mostrar "Cargando..." */
+    /* TODO: Si está cargando, devolver <section className="task-hero">Cargando...</section> no esté cargada la noticia, mostrar "Cargando..." */
 
     return (<section className="task-hero">
         <div className="task-hero-top">
