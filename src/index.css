@@ -254,3 +254,130 @@ form button[type="submit"]:hover {
     width: 100%;
   }
 }
+
+/* --- Layout / páginas --- */
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  background: rgba(11, 18, 32, 0.72);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255,255,255,0.10);
+}
+
+.navbar-inner {
+  width: min(920px, calc(100% - 32px));
+  margin: 0 auto;
+  padding: 14px 8px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.brand {
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.navlinks {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.navlinks a {
+  color: var(--muted);
+  text-decoration: none;
+  padding: 8px 10px;
+  border-radius: 10px;
+  border: 1px solid transparent;
+  background: rgba(255,255,255,0.04);
+}
+
+.navlinks a:hover {
+  background: rgba(255,255,255,0.08);
+}
+
+.navlinks a.active {
+  color: var(--text);
+  border-color: rgba(124, 92, 255, 0.35);
+  background: rgba(124, 92, 255, 0.14);
+}
+
+.page {
+  width: min(920px, calc(100% - 32px));
+  margin: 22px auto;
+}
+
+.card {
+  padding: 22px 20px;
+  border-radius: calc(var(--radius) + 6px);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.04));
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+}
+
+.muted {
+  color: var(--muted);
+}
+
+.task-hero {
+  padding: 28px 24px;
+  border-radius: calc(var(--radius) + 10px);
+  border: 1px solid rgba(255,255,255,0.14);
+  background:
+    radial-gradient(700px 260px at 20% 0%, rgba(124,92,255,0.30), transparent 60%),
+    radial-gradient(700px 260px at 90% 20%, rgba(34,197,94,0.18), transparent 60%),
+    rgba(255,255,255,0.05);
+  box-shadow: var(--shadow);
+}
+
+.task-hero-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+
+.task-hero-title {
+  margin: 14px 0 8px;
+  font-size: clamp(28px, 3.2vw, 44px);
+  letter-spacing: -0.03em;
+}
+
+.link {
+  color: rgba(255,255,255,0.82);
+  text-decoration: none;
+}
+
+.link:hover {
+  text-decoration: underline;
+}
+
+.btn {
+  display: inline-block;
+  padding: 10px 14px;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.14);
+  background: rgba(255,255,255,0.08);
+  color: var(--text);
+  text-decoration: none;
+}
+
+.btn:hover {
+  background: rgba(255,255,255,0.12);
+}
+
+.mini-grid {
+  margin: 12px 0 18px;
+  display: grid;
+  gap: 8px;
+}
+
+button.ghost {
+  justify-content: start;
+  text-align: left;
+  border-radius: 12px;
+  padding: 10px 12px;
+}
