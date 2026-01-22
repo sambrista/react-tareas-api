@@ -103,6 +103,10 @@ li:hover {
   border-color: rgba(255, 255, 255, 0.16);
 }
 
+li:hover.completada {
+  background: rgba(0, 255, 21, 0.226);
+}
+
 /* Texto del item: hace elipsis si es muy largo */
 li {
   overflow: hidden;
