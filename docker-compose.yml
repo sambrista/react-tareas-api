@@ -4,7 +4,7 @@ services:
     ports:
       - "3000:3000"
     volumes:
-      - ./backend/db.json:app/db.json
+      - ./backend/db.json:/app/db.json
     environment:
       - PORT=3000
       - JWT_SECRET=mi-codigo-secreto
