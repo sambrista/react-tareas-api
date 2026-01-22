@@ -5,6 +5,7 @@ import TasksPage from './pages/TasksPage'
 import ProfilePage from './pages/ProfilePage'
 import AboutPage from './pages/AboutPage'
 import TaskDetailPage from './pages/TaskDetailPage'
+import LoginPage from './pages/LoginPage'
 
 function App() {
 
@@ -16,6 +17,8 @@ function App() {
         <Route path="/tasks/:id" element={<TaskDetailPage />} />
         <Route path="/about" element={<AboutPage />} />
         <Route path="/profile" element={<ProfilePage />} />
+        <Route path="/login" element={<LoginPage />} />
+        <Route path="*" element={<p className='card'>La página indicada no existe</p>} />
       </Route>
     </Routes>
   )

@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import type { Task } from "../types/Task";
 
 type TaskListProps = {
@@ -10,6 +11,10 @@ type TaskListProps = {
 };
 
 function TaskList({ tareas, cargando, peticionEnProgreso, setTareaSeleccionada, borrarTarea, editarTarea}: TaskListProps) {
+  const navigate = useNavigate();
+  function verTarea(tarea: Task) :void {
+    navigate(`/tasks/${tarea.id}`);
+  }
   return (
     <>
       {cargando && <p>Cargando...</p>}
@@ -19,7 +24,7 @@ function TaskList({ tareas, cargando, peticionEnProgreso, setTareaSeleccionada, 
             tareas.map((tarea) => (
               <li key={tarea.id} className={tarea.completed ? "completada"  :""}>
                 { tarea.completed && "✅ " }
-                {tarea.title}{" "}
+                <span className="tituloTarea" onClick={() => {verTarea(tarea)}}>{tarea.title}</span>{" "}
                 { !tarea.completed && (<button
                   disabled={peticionEnProgreso}
                   className="complete"
