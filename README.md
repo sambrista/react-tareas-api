@@ -50,6 +50,9 @@ docker compose up --build
 
 ## Levantar la API (json-server) (versión sin autenticación)
 
+<!-- !!!warning ¡Cuidado!
+   Esta API es la versión antigua, que no soporta autenticación. -->
+   
 Este proyecto incluye el fichero `tasks.json` en la raíz.
 
 ### Opción A: usar json-server con npx (recomendado para clase)
