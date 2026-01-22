@@ -1,0 +1,10 @@
+{
+  "users": [
+    { "id": 1, "email": "profe@demo.com", "password": "1234", "name": "Profe Demo" }
+  ],
+  "tasks": [
+    { "id": 1, "title": "Aprender React", "completed": false, "userId": 1 },
+    { "id": 2, "title": "Aprender TypeScript", "completed": false, "userId": 1 },
+    { "id": 3, "title": "Construir una aplicación", "completed": true, "userId": 1 }
+  ]
+}
