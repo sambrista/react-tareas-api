@@ -1,6 +1,7 @@
 import { NavLink, Outlet } from "react-router-dom";
 
 export default function AppLayout() {
+    /* TODO Obtener del contexto los datos y funciones necesarios */ 
     return (
         <div>
             <header className="navbar">
