@@ -1,6 +1,7 @@
 import { NavLink, Outlet } from "react-router-dom";
 
 export default function AppLayout() {
+    /* TODO Obtener del contexto los datos y funciones necesarios */ 
     return (
         <div>
             <header className="navbar">
@@ -10,7 +11,9 @@ export default function AppLayout() {
                         <NavLink to="/tasks">Tareas</NavLink>
                         <NavLink to="/about">About</NavLink>
                         <NavLink to="/profile">Perfil</NavLink>
-                        <NavLink to="/login">Login</NavLink>
+                        {/* TODO: Mostrar login no ha iniciado sesión */}
+                        <NavLink to="/login">Login</NavLink> 
+                        {/* TODO: Si ha iniciado sesión, mostrar nombre y botón con clase nav-btn para cerrar sesión */}
                     </nav>
                 </div>
             </header>

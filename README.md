@@ -38,6 +38,7 @@ La app se ejecuta con **Vite** y realiza llamadas a una API REST simulada usando
    npm install
    ```
 3. Haz una copia del archivo `tasks.json.dist` y nómbralo como `tasks.json`.
+3. Haz una copia del archivo `backend/db.json.dist` y nómbralo como `db.json`.
 4. Configura las variables de entorno. Una forma de hacerlo es copiando el archivo `.env.dist` a `.env` o `.env.dist.local` y personalizándolo con la configuración de tu sistema.
 
 ## Levantar la API (docker) (versión con autenticación)
@@ -96,3 +97,12 @@ Por defecto, Vite suele servir en:
    ```bash
    npm run dev
    ```
+
+## Usuarios
+
+La aplicación, cuando se usa con el backend dockerizado, cuenta con dos usuarios:
+
+| ID | Nombre  | Contraseña | Email               |
+|:--:|:--------|:-----------|:--------------------|
+| 1  | usuario | usuario    | <usuario@gmail.com> |
+| 2  | admin   | admin      | <admin@gmail.com>   |
