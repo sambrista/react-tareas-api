@@ -1,9 +1,9 @@
-import { NavLink, Outlet, useNavigate } from "react-router-dom";
+import { NavLink, Outlet } from "react-router-dom";
 import { useAuth } from "../auth/authContext";
 
 export default function AppLayout() {
-    /* TODO Obtener del contexto los datos y funciones necesarios */
-    
+    const {isAuthenticated, user, logout } = useAuth();
+    /* TODO Obtener del contexto los datos y funciones necesarios */ 
     return (
         <div>
             <header className="navbar">
@@ -13,10 +13,8 @@ export default function AppLayout() {
                         <NavLink to="/tasks">Tareas</NavLink>
                         <NavLink to="/about">About</NavLink>
                         <NavLink to="/profile">Perfil</NavLink>
-                        {/* TODO: Mostrar login no ha iniciado sesión */}
-                        <NavLink to="/login">Login</NavLink> 
-
-                        {/* TODO: Si ha iniciado sesión, mostrar nombre y botón con clase nav-btn para cerrar sesión */}
+                        { !isAuthenticated && <NavLink to="/login">Login</NavLink> }
+                        { isAuthenticated && user && <span>{user.name} <button className="nav-btn" onClick={logout}>Logout</button></span> }
                     </nav>
                 </div>
             </header>

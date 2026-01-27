@@ -389,3 +389,80 @@ form button.cancel:hover {
 .btn:hover {
   background: rgba(255,255,255,0.12);
 }
+
+.toast {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  min-width: 280px;
+  max-width: 400px;
+  padding: 14px 18px;
+  border-radius: 8px;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 14px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  animation: slideIn 0.4s ease, fadeOut 0.4s ease 3.6s forwards;
+  z-index: 9999;
+}
+
+.toast.error {
+  background-color: #fdecea;
+  color: #611a15;
+  border-left: 5px solid #d93025;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(120%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  to {
+    opacity: 0;
+    transform: translateX(120%);
+  }
+}
+
+/* =========================================================
+   LOGIN FORM ROW
+   ========================================================= */
+.form-row.login-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr auto;
+  gap: 12px;
+  width: 100%;
+  align-items: center;
+}
+
+/* Inputs del login */
+.login-row input {
+  height: 42px;
+}
+
+/* Botón login */
+.login-row button[type="submit"] {
+  height: 42px;
+  padding: 0 22px;
+  white-space: nowrap;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  .form-row.login-row {
+    grid-template-columns: 1fr;
+  }
+
+  .login-row button {
+    width: 100%;
+  }
+}
+
+form button[type="submit"] {
+  box-shadow: 0 6px 18px rgba(124, 92, 255, 0.45);
+}
