@@ -45,7 +45,7 @@ export default function TasksPage() {
     taskService
       .getAll()
       .then((listaTareas) => setTareas(listaTareas))
-      .catch((respuestaErronea) => { setError(respuestaErronea.message)})
+      .catch((respuestaErronea) => { setError(respuestaErronea.message + ": " + respuestaErronea.response.data.message)})
       .finally(() => setCargando(false));
   }, []);
 

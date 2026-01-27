@@ -10,9 +10,9 @@ export default function AppLayout() {
                 <div className="navbar-inner">
                     <span className="brand">React Tareas</span>
                     <nav className="navlinks">
-                        <NavLink to="/tasks">Tareas</NavLink>
+                        { isAuthenticated && user && <NavLink to="/tasks">Tareas</NavLink> }
                         <NavLink to="/about">About</NavLink>
-                        <NavLink to="/profile">Perfil</NavLink>
+                        { isAuthenticated && user && <NavLink to="/profile">Perfil</NavLink> }
                         { !isAuthenticated && <NavLink to="/login">Login</NavLink> }
                         { isAuthenticated && user && <span>{user.name} <button className="nav-btn" onClick={logout}>Logout</button></span> }
                     </nav>

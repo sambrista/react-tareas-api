@@ -10,7 +10,7 @@ export default function TaskDetailPage() {
 
   useEffect(() => {
     if (id) {
-      taskService.get(parseInt(id)).then((tarea) => setTareaSeleccionada(tarea)).finally(() => setCargando(false))
+      taskService.get(parseInt(id)).then((tarea) => setTareaSeleccionada(tarea)).catch(() => {setTareaSeleccionada(null)}).finally(() => setCargando(false))
     }
   }, [])
 
@@ -33,6 +33,7 @@ export default function TaskDetailPage() {
 
     }
     {cargando && <p>Cargando...</p>}
+    { !cargando && tareaSeleccionada === null && <p>El usuario no tiene la tarea indicada.</p>} 
     <div className="task-hero-actions">
       <Link className="btn" to="/tasks">Ir a la lista</Link>
     </div>

@@ -1,4 +1,4 @@
-import { createContext, useContext, useMemo, useState } from "react";
+import { createContext, useContext, useEffect, useMemo, useState } from "react";
 import type { AuthSession, User } from "../types/Auth";
 import { authStorage } from "./authStorage";
 
@@ -16,6 +16,12 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
 
     const [user, setUser] = useState<User | null>(initial?.user ?? null)
     const [token, setToken] = useState<string | null>(initial?.token ?? null)
+
+    function syncFromStorage() {
+        const session: AuthSession | null = authStorage.get();
+        setUser(session?.user ?? null)
+        setToken(session?.token ?? null)
+    }
 
     function login(session: AuthSession) {
         authStorage.set(session);
@@ -37,6 +43,11 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
             logout
         };
     }, [user, token])
+
+    useEffect(() => {
+        window.addEventListener("storage", syncFromStorage)
+        return window.removeEventListener("storage", syncFromStorage)
+    })
 
     return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>
 }
